@@ -18,6 +18,20 @@ function tinymce_init() {
 	elgg_extend_view('input/longtext', 'tinymce/init');
 	
 	elgg_extend_view('embed/custom_insert_js', 'tinymce/embed_custom_insert_js');
+	
+	elgg_register_plugin_hook_handler('register', 'menu:longtext', 'tinymce_longtext_menu');
+}
+
+function tinymce_longtext_menu($hook, $type, $items, $vars) {
+	
+	$items[] = ElggMenuItem::factory(array(
+		'name' => 'tinymce_toggler',
+		'link_class' => 'tinymce-toggle-editor elgg-longtext-control',
+		'href' => "#{$vars['id']}",
+		'text' => elgg_echo('tinymce:remove'),
+	));
+	
+	return $items;
 }
 
 function tinymce_get_site_language() {

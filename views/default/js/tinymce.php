@@ -1,5 +1,21 @@
 elgg.provide('elgg.tinymce');
 
+elgg.tinymce.toggleEditor = function(event) {
+	event.preventDefault();
+	
+	var target = $(this).attr('href');
+    var id = $(target).attr('id');
+    var $link = $(this);
+    
+    tinyMCE.execCommand('mceToggleEditor', false, id);
+    if ($link.html() == elgg.echo('tinymce:remove')) {
+        $link.html(elgg.echo('tinymce:add'));
+    } else {
+        $link.html(elgg.echo('tinymce:remove'));
+    }
+	
+}
+
 /**
  * TinyMCE initialization script
  *
@@ -7,7 +23,8 @@ elgg.provide('elgg.tinymce');
  * http://tinymce.moxiecode.com/wiki.php/Configuration
  */
 elgg.tinymce.init = function() {
-
+	
+	$('.tinymce-toggle-editor').live('click', elgg.tinymce.toggleEditor);
 	$('.elgg-input-longtext').parents('form').submit(function() {
 		tinyMCE.triggerSave();
 	});
