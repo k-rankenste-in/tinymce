@@ -1,10 +1,3 @@
-Name : TinyMCE
-Description : TinyMCE WYSIWYG editor
-Author : RiverVanRain [http://weborganizm.org/creator/rivervanrain]
-Web : http://weborganizm.org/crewz/p/1983/personal-net
-License : GNU General Public License version 2
-Copyright : weborganiZm 2k13
-
 Adding a language
 ======================
 1. Download the language pack from [TinyMCE][1]
@@ -15,3 +8,9 @@ Instead, copy the new directories on top of the old ones.
 4. Flush the Elgg caches.
 
 [1]: http://www.tinymce.com/i18n/index.php?ctrl=lang&act=download	"TinyMCE"
+
+Links
+======================
+TinyMCE Homepage: http://www.tinymce.com/index.php
+Documentation: http://www.tinymce.com/wiki.php
+Forum: http://www.tinymce.com/forum/index.php

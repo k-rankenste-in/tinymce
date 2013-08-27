@@ -31,20 +31,31 @@ elgg.tinymce.init = function() {
 
 	tinyMCE.init({
 		mode : "specific_textareas",
-		editor_selector : "elgg-input-longtext",
+		selector : ".elgg-input-longtext",
 		theme : "modern",
 		language : "<?php echo tinymce_get_site_language(); ?>",
-		plugins : "image,media,link,code,autosave",
+		plugins : "image media link autosave",
+		image_advtab: true,
+		paste_data_images: false,
 		relative_urls : false,
 		remove_script_host : false,
-		document_base_url : elgg.config.wwwroot,
-		theme_advanced_toolbar_location : "top",
-		theme_advanced_toolbar_align : "left",
-		theme_advanced_statusbar_location : "bottom",
-		theme_advanced_resizing : true,
-		theme_advanced_path : true,
-		width : "100%",
+		convert_urls : false,
+		document_base_url : wzm.config.wwwroot,
+		toolbar1 : "bold italic underline alignleft aligncenter alignright bullist numlist image media link unlink",
+		width : "99%",
 		extended_valid_elements : "a[name|href|target|title|onclick],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name|style],hr[class|width|size|noshade],font[face|size|color|style],span[class|align|style]",
+		setup : function(ed) {
+                    ed.on('Init', function() {
+                        var edDoc = ed.getDoc();
+                        if ("addEventListener" in edDoc) {
+                            edDoc.addEventListener("drop", function(e) {
+                                if (e.dataTransfer.files.length > 0) {
+                                    e.preventDefault();
+                                }
+                            }, false);
+                        }
+                    });
+                },
 		content_css: elgg.config.wwwroot + 'mod/tinymce/css/elgg_tinymce.css'
 	});
 
