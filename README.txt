@@ -13,4 +13,5 @@ Links
 ======================
 TinyMCE Homepage: http://www.tinymce.com/index.php
 Documentation: http://www.tinymce.com/wiki.php
+Plugins: http://www.tinymce.com/download/plugins.php
 Forum: http://www.tinymce.com/forum/index.php
