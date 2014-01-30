@@ -34,16 +34,18 @@ elgg.tinymce.init = function() {
 		selector : ".elgg-input-longtext",
 		theme : "modern",
 		language : "<?php echo tinymce_get_site_language(); ?>",
-		plugins : "image media link autosave",
+		plugins : "advlist anchor autolink charmap code fullscreen hr image media link lists paste preview searchreplace table visualblocks visualchars",
 		image_advtab: true,
 		paste_data_images: false,
 		relative_urls : false,
 		remove_script_host : false,
 		convert_urls : false,
-		document_base_url : wzm.config.wwwroot,
-		toolbar1 : "bold italic underline alignleft aligncenter alignright bullist numlist image media link unlink",
+		document_base_url : elgg.config.wwwroot,
+		statusbar : false,
+		menubar : false,
+		toolbar1 : "bold italic underline strikethrough | styleselect removeformat | bullist numlist | table | link image media anchor hr | charmap | undo redo | searchreplace visualblocks visualchars code",
 		width : "99%",
-		extended_valid_elements : "a[name|href|target|title|onclick],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name|style],hr[class|width|size|noshade],font[face|size|color|style],span[class|align|style]",
+		//extended_valid_elements : "a[name|href|target|title|onclick],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name|style],hr[class|width|size|noshade],font[face|size|color|style],span[class|align|style]",
 		setup : function(ed) {
                     ed.on('Init', function() {
                         var edDoc = ed.getDoc();
